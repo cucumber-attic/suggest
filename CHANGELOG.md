@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.0.6] - 2021-10-12
+### Changed
+- Upgrade to `@cucumber/cucumber-expressions 14.0.0`
+
 ## [0.0.5] - 2021-10-12
 ### Added
 - Release as ESM module
@@ -39,7 +43,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release!
 
-[Unreleased]: https://github.com/cucumber/suggest/compare/v0.0.5...main
+[Unreleased]: https://github.com/cucumber/suggest/compare/v0.0.6...main
+[0.0.6]: https://github.com/cucumber/suggest/compare/v0.0.5...0.0.6
 [0.0.5]: https://github.com/cucumber/suggest/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/cucumber/suggest/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/cucumber/suggest/compare/v0.0.2...v0.0.3
