@@ -1,3 +1,5 @@
+[![test-javascript](https://github.com/cucumber/suggest/actions/workflows/test-javascript.yml/badge.svg)](https://github.com/cucumber/suggest/actions/workflows/test-javascript.yml)
+
 # Cucumber Suggest
 
 This is a library that can be used to build Gherkin step auto-complete in editors.
@@ -89,10 +91,10 @@ becomes the following LSP Completion Snippet:
 
 ### LSP
 
-With the [LSP](https://microsoft.github.io/language-server-protocol/) approach, the storage is typically a 
+With the [LSP](https://microsoft.github.io/language-server-protocol/) approach, the storage is typically a
 [search index](https://en.wikipedia.org/wiki/Search_engine_indexing).
-When the user invokes the auto-complete command in the editor, the editor will send a 
-[completion request](https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#textDocument_completion) 
+When the user invokes the auto-complete command in the editor, the editor will send a
+[completion request](https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#textDocument_completion)
 to the LSP server. The LSP server queries the search index, and uses the returned *Step Documents* to build the response to
 the completion request.
 
@@ -237,7 +239,7 @@ The `segments` field can also be used to build an
 
 ### Search Index
 
-Each `StepDocument` can be added to a *search index*, either during the ETL process, or inside a dedicated editor plugin. 
+Each `StepDocument` can be added to a *search index*, either during the ETL process, or inside a dedicated editor plugin.
 The search index will return matching `StepDocument`s for a search term.
 
 The index is a function with the following signature:
