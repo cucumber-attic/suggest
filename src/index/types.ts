@@ -1,4 +1,4 @@
-import { StepDocument } from '../types'
+import { StepDocument } from '../types.js'
 
 /**
  * A search index function.

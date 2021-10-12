@@ -1,8 +1,9 @@
 import { DataTable, Given, Then, When } from '@cucumber/cucumber'
-import World from '../support/World'
-import assert from 'assert'
 import { ExpressionFactory, ParameterTypeRegistry } from '@cucumber/cucumber-expressions'
-import { lspCompletionSnippet, bruteForceIndex, buildStepDocuments } from '../../src'
+import assert from 'assert'
+
+import { bruteForceIndex, buildStepDocuments, lspCompletionSnippet } from '../../src'
+import World from '../support/World'
 
 Given('the following Gherkin step texts exist:', function (this: World, stepsTable: DataTable) {
   this.steps = stepsTable.rows().map((row) => row[0])

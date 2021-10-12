@@ -1,5 +1,6 @@
-import { setWorldConstructor, defineParameterType } from '@cucumber/cucumber'
+import { defineParameterType, setWorldConstructor } from '@cucumber/cucumber'
 import { Expression } from '@cucumber/cucumber-expressions'
+
 import { StepDocument } from '../../src'
 
 defineParameterType({

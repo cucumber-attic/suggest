@@ -1,6 +1,11 @@
-import { Expression, ExpressionFactory, ParameterTypeRegistry } from '@cucumber/cucumber-expressions'
+import {
+  Expression,
+  ExpressionFactory,
+  ParameterTypeRegistry,
+} from '@cucumber/cucumber-expressions'
 import assert from 'assert'
-import { StepDocument, buildStepDocuments } from '../src'
+
+import { buildStepDocuments, StepDocument } from '../src/index.js'
 
 describe('buildStepDocuments', () => {
   it('builds step documents with global choices', () => {
@@ -15,12 +20,12 @@ describe('buildStepDocuments', () => {
         {
           suggestion: 'The {word} boat',
           segments: ['The ', ['big', 'nice'], ' boat'],
-          expression: e2
+          expression: e2,
         },
         {
           suggestion: 'The {word} song',
           segments: ['The ', ['big', 'nice'], ' song'],
-          expression: e1
+          expression: e1,
         },
       ]
     )
@@ -40,7 +45,7 @@ describe('buildStepDocuments', () => {
         {
           suggestion: 'I have {int} cukes in my {word}',
           segments: ['I have ', ['42', '54'], ' cukes in my ', ['basket', 'belly', 'table']],
-          expression
+          expression,
         },
         {
           suggestion: 'I have {int} cukes on my {word}',
@@ -61,7 +66,7 @@ describe('buildStepDocuments', () => {
         {
           suggestion: 'I have {} cukes in my "{}"',
           segments: ['I have ', ['42', '54'], ' cukes in my "', ['belly', 'suitcase'], '"'],
-          expression
+          expression,
         },
       ]
     )
@@ -101,10 +106,6 @@ function assertStepDocuments(
   expectedStepDocuments: StepDocument[],
   maxChoices = 10
 ) {
-  const stepDocuments = buildStepDocuments(
-    stepTexts,
-    expressions,
-    maxChoices
-  )
+  const stepDocuments = buildStepDocuments(stepTexts, expressions, maxChoices)
   assert.deepStrictEqual(stepDocuments, expectedStepDocuments)
 }

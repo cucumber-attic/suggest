@@ -1,6 +1,7 @@
-import { Index } from './types'
-import { StepDocument } from '../types'
 import { Search } from 'js-search'
+
+import { StepDocument } from '../types'
+import { Index } from './types'
 
 type Doc = {
   id: number

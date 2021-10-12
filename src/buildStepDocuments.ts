@@ -1,5 +1,6 @@
-import { StepDocument } from './types'
 import { Expression } from '@cucumber/cucumber-expressions'
+
+import { StepDocument } from './types.js'
 
 type TextOrParameterTypeNameExpression = TextOrParameterTypeNameSegment[]
 type TextOrParameterTypeNameSegment = string | ParameterTypeData
@@ -41,9 +42,9 @@ export function buildStepDocuments(
             choices = new Set<string>()
             choicesByParameterTypeRegexpStrings.set(regexpStrings, choices)
           }
-          choices.add(arg.group.value)
+          if (arg.group.value !== undefined) choices.add(arg.group.value)
 
-          index = arg.group.end
+          if (arg.group.end !== undefined) index = arg.group.end
         }
         const lastSegment = text.substring(index)
         if (lastSegment !== '') {
@@ -59,6 +60,7 @@ export function buildStepDocuments(
   return [...jsonTextOrParameterTypeNameExpression].sort().map((json) => {
     const textOrParameterTypeNameExpression: TextOrParameterTypeNameExpression = JSON.parse(json)
     const expression = expressionByJson.get(json)
+    if (!expression) throw new Error(`No expression for json key ${json}`)
 
     const suggestion = textOrParameterTypeNameExpression
       .map((segment) => {
@@ -74,7 +76,7 @@ export function buildStepDocuments(
       if (typeof segment === 'string') {
         return segment
       } else {
-        const choices = choicesByParameterTypeRegexpStrings.get(segment.regexpStrings)
+        const choices = choicesByParameterTypeRegexpStrings.get(segment.regexpStrings) || new Set()
         return [...choices].sort().slice(0, maxChoices)
       }
     })
@@ -82,7 +84,7 @@ export function buildStepDocuments(
     const stepDocument: StepDocument = {
       suggestion,
       segments,
-      expression
+      expression,
     }
 
     return stepDocument

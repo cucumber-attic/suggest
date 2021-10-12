@@ -1,5 +1,5 @@
-import { Index } from './types'
 import { StepDocument } from '../types'
+import { Index } from './types'
 
 /**
  * A brute force (not very performant or fuzzy-search capable) index that matches permutation expressions with string.includes()
