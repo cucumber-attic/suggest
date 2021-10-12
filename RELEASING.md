@@ -23,11 +23,7 @@ To make these steps easier, you can use the [`changelog`](https://github.com/cuc
         * Under `[Unreleased]` at the top, add a new `[${version}] - ${YYYY-mm-dd}` header
         * Add a new `[${version}]` link at the bottom
         * Update the `[Unreleased]` link at the bottom
-1. Update the version numbers in package descriptors:
-    * `go/go.mod` (only if the major version has changed)
-    * `java/pom.xml` (keep the `-SNAPSHOT` suffix)
-    * `javascript/package.json`
-    * `ruby/VERSION`
+1. Update the version number in `package.json`
 1. Commit and push
    ```
    git add .
